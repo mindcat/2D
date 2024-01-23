@@ -1,0 +1,85 @@
+\usepackage{mathtools, amsmath, amsthm, amssymb, calrsfs, wasysym, verbatim, bbm, color, graphics, geometry, siunitx, tikz, dsfont, setspace}
+
+\doublespacing
+
+\geometry{tmargin=.75in, bmargin=.75in, lmargin=.75in, rmargin = .75in}
+
+
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Cdot}{\boldsymbol{\cdot}}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\,\delimsize\vert\,\mathopen{}#2}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{post}{Postulate}
+\newtheorem{qs}{Question}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}{Corollary}
+
+
+\title{Emerging \& Low Dimensional Materials: [PHYS-789]}
+\author{M. Elijah Wangeman}
+\date{Spring 2024}
+
+\usepackage{color}   %May be necessary if you want to color links
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+    colorlinks=false, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+}
+
+% TIKZ
+\usetikzlibrary{arrows} 
+
+\newcommand{\sga}[6]
+{
+    % analyzer body
+    \draw[rounded corners] (#3-1, #4-0.5) rectangle (#3+1, #4+0.5) {};
+    % analyzer labels
+    \draw (#3, #4+0.75) node[font=\small] {#2};
+    \draw (#3, #4) node {#1};
+    % output high
+    \draw (#3+0.75, #4+0.2) node {$+$};
+    \draw [thick, ->, >=stealth'](#3+1,#4+0.2) -- (#3+2,#4+0.2);
+    \draw (#3+2.4, #4+0.2) node {$#5$};
+    % output low
+    \draw (#3+0.75, #4-0.2) node {$-$};
+    \draw [thick, ->, >=stealth'](#3+1,#4-0.2) -- (#3+2,#4-0.2);
+    \draw (#3+2.4, #4-0.2) node {$#6$};
+}
+
+\newcommand{\sgal}[4]
+{
+    \draw[rounded corners] (#3-1, #4-0.5) rectangle (#3+1, #4+0.5) {};
+    \draw (#3, #4+0.75) node[font=\small] {#2};
+    \draw (#3, #4) node {#1};
+    \draw (#3-0.75, #4+0.2) node {$+$};
+    \draw [thick, ->, >=stealth'](#3-1,#4+0.2) -- (#3-2,#4+0.2);
+    \draw (#3-0.75, #4-0.2) node {$-$};
+    \draw [thick, ->, >=stealth'](#3-1,#4-0.2) -- (#3-2,#4-0.2);
+}
+
+\newcommand{\srcp}[2]
+{
+    \draw[rounded corners, fill=lightblue] (#1-1, #2-0.5) rectangle (#1+1, #2+0.5) {};
+    \draw (#1, #2) node[font=\small] {Pair Source};
+    \draw [thick, ->, >=stealth'](#1-1,#2) -- (#1-2,#2);
+    \draw [thick, ->, >=stealth'](#1+1,#2) -- (#1+2,#2);
+}
+
+\def\checkmark{\tikz\fill[scale=0.4, color=lightgreen](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+\newcommand\xmark{%
+  \tikz[scale=0.4,red]{
+    \fill(0,0)--(0.1,0) .. controls (0.5,0.4) .. (1,0.7)--(0.9,0.7) ..  controls (0.5,0.5) ..(0,0.1) --cycle;
+    \fill(1,0.1)--(0.9,0.1) .. controls (0.5,0.3) .. (0,0.7)--(0.1,0.7) .. controls (0.5,0.4) ..(1,0.2) --cycle;
+  }%
+}
